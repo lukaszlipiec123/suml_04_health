@@ -52,8 +52,8 @@ def main():
         )
 
     with right:
-        age_slider = st.slider("Wiek", value=1, min_value=11, max_value=77)
-        height_slider = st.slider("Wzrost", value=1, min_value=164, max_value=200)
+        age_slider = st.slider("Wiek", value=11, min_value=11, max_value=77)
+        height_slider = st.slider("Wzrost", value=164, min_value=164, max_value=200)
 
     data = [
         [
