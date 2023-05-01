@@ -17,7 +17,7 @@ model = pickle.load(open(filename, "rb"))
 # otwieramy wcześniej wytrenowany model
 
 symptomps_d = {1: "1", 2: "2", 3: "3", 4: "4", "5": 5}
-# pclass_d = {0: "Pierwsza", 1: "Druga", 2: "Trzecia"}
+comorbidity_d = {0: "0", 1: "1", 2: "2", 3: "3", 4: "4", "5": 5}
 # embarked_d = {0: "Cherbourg", 1: "Queenstown", 2: "Southampton"}
 # o ile wcześniej kodowaliśmy nasze zmienne, to teraz wprowadzamy etykiety z ich nazewnictwem
 
@@ -30,14 +30,20 @@ def main():
     left, right = st.columns(2)
     prediction = st.container()
 
-    st.image("https://upload.wikimedia.org/wikipedia/commons/f/fd/RMS_Titanic_3.jpg")
+    st.image("https://strongerhabits.com/wp-content/uploads/2015/02/shutterstock_214341322-450x391.jpg")
 
     with overview:
         st.title(title)
 
     with left:
-        symptomps_radio = st.radio("Choroby", list(symptomps_d.keys()), format_func=lambda x: symptomps_d[x])
-        # sex_radio = st.radio("Płeć", list(sex_d.keys()), format_func=lambda x: sex_d[x])
+        symptomps_radio = st.radio(
+            "Choroby", list(symptomps_d.keys()), format_func=lambda x: symptomps_d[x]
+        )
+        comorbidity_radio = st.radio(
+            "Choroby współistniejące",
+            list(comorbidity_d.keys()),
+            format_func=lambda x: comorbidity_d[x],
+        )
         # embarked_radio = st.radio(
         #     "Port zaokrętowania",
         #     list(embarked_d.keys()),
@@ -48,8 +54,8 @@ def main():
         #     "Klasa", list(pclass_d.keys()), format_func=lambda x: pclass_d[x]
         # )
 
-    # with right:
-    #     age_slider = st.slider("Wiek", value=1, min_value=1, max_value=90)
+    with right:
+        age_slider = st.slider("Wiek", value=1, min_value=11, max_value=77)
     #     sibsp_slider = st.slider(
     #         "Liczba rodzeństwa i/lub partnera", min_value=0, max_value=10
     #     )
@@ -61,12 +67,12 @@ def main():
     data = [
         [
             symptomps_radio,
-            # pclass_radio,
+            comorbidity_radio,
             # sex_radio,
             # age_slider,
             # sibsp_slider,
             # parch_slider,
-            # fare_slider,
+            age_slider,
             # embarked_radio,
         ]
     ]
