@@ -21,7 +21,7 @@ comorbidity_d = {0: "0", 1: "1", 2: "2", 3: "3", 4: "4", "5": 5}
 drugs_d = {1: "1", 2: "2", 3: "3", 4: "4"}
 # o ile wcześniej kodowaliśmy nasze zmienne, to teraz wprowadzamy etykiety z ich nazewnictwem
 
-title = "App Titanic"
+title = "Predykcja zdrowia"
 
 
 def main():
@@ -37,7 +37,7 @@ def main():
 
     with left:
         symptomps_radio = st.radio(
-            "Choroby", list(symptomps_d.keys()), format_func=lambda x: symptomps_d[x]
+            "Objawy", list(symptomps_d.keys()), format_func=lambda x: symptomps_d[x]
         )
         comorbidity_radio = st.radio(
             "Choroby współistniejące",
