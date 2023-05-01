@@ -58,10 +58,10 @@ def main():
     data = [
         [
             symptomps_radio,
-            comorbidity_radio,
-            drugs_radio,
             age_slider,
+            comorbidity_radio,
             height_slider,
+            drugs_radio,
         ]
     ]
     survival = model.predict(data)
