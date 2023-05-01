@@ -45,7 +45,7 @@ def main():
             format_func=lambda x: comorbidity_d[x],
         )
         drugs_radio = st.radio(
-            "Port zaokrętowania",
+            "Leki",
             list(drugs_d.keys()),
             index=2,
             format_func=lambda x: drugs_d[x],
