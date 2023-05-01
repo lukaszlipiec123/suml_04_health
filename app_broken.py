@@ -53,6 +53,7 @@ def main():
 
     with right:
         age_slider = st.slider("Wiek", value=1, min_value=11, max_value=77)
+        height_slider = st.slider("Wzrost", value=1, min_value=164, max_value=200)
 
     data = [
         [
@@ -60,6 +61,7 @@ def main():
             comorbidity_radio,
             drugs_radio,
             age_slider,
+            height_slider,
         ]
     ]
     survival = model.predict(data)
